@@ -49,7 +49,7 @@
                                 <p>
                                     This is a hobby aggregation application which lets you
                                     keep a stock of your hobbies.
-                                    This version allows a you add hobbies and sends them
+                                    This version allows you add hobbies and sends them
                                     to you via SMS and Email.
                                 </p>
                             </article>
@@ -59,7 +59,7 @@
                             <article>
                                 <h3>TECHNOLOGIES</h3>
                                 <p>
-                                    To bring this application to you, I used the foolowing
+                                    To bring this application to you, I used the following
                                     technologies:<br>
                                     <ol>
                                         <li>HTML & CSS</li>
@@ -103,7 +103,10 @@
                                 <p>
                                     Nathan is a self-taught driven, self-motivated and creative
                                     full stack web developer who loves to solve problems and
-                                    drive positive growth. He's also had the priviledge of being
+                                    drive positive growth.
+                                </p>
+                                <p>
+                                    He's also had the priviledge of being
                                     the president of the Nigeria Association of Computer Science Students,
                                     LAUTECH chapter and the chief publisher of an erstwhile campus
                                     Magazine - MeekUrban.

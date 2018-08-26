@@ -12,12 +12,40 @@
     }
     .left-sec, .right-sec{
         width: 100%;
+        padding: 0px;
     }
     .left-sec{
         padding-left: 15px; 
     }
     .right-sec{
         padding-right: 15px;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 361px)
+{
+    .outer-about-wrapper{
+        width: 100%;
+        padding: 0;
+    }
+    .ball-point{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+          
+        background: #CE6998;
+    }
+    
+    .right-sec article
+    {
+        width: 90%;
+        float: left;
+        display: block;
+        height: auto;
+        
+        box-sizing: border-box;
+        padding: 7px 15px;
     }
 }
 
