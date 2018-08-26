@@ -10,7 +10,8 @@ function sendMail($emailAddress, $hobby)
         $email->setSubject("FieldInsight: Oguntuberu Nathan");
         $email->addTo($emailAddress, "");
         $email->addContent("text/plain", "You just added a new hobby:"+$hobby);
-        $sendgrid = new \SendGrid('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');
+        
+        $sendgrid = new \SendGrid(getenv('SENDGRID_API_KEY'));
         
         $response = $sendgrid->send($email);
         $retVal = true;
