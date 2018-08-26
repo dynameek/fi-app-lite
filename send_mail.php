@@ -1,6 +1,4 @@
-
 <?php
-require 'vendor/autoload.php'; // If you're using Composer (recommended)
 
 function sendMail($emailAddress, $hobby)
 {
