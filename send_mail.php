@@ -14,6 +14,7 @@ function sendMail($emailAddress, $hobby)
         $response = $sendgrid->send($email);
         $retVal = true;
     } catch (Exception $e) {
+        $->getMessage();
         $retVal = false;
     }
     
