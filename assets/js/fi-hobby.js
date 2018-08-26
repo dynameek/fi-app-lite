@@ -26,64 +26,57 @@ if(!localStorage.getItem('uid'))
 /*  Set user details*/
 var users = JSON.parse(localStorage.getItem('users'));
 var user = users[localStorage.getItem('uid')];
-
+var uid = user.email;
 
 
 window.addEventListener('load', function(){
     var logoutBtn = document.getElementById('logout');
     var addHobbyBtn = document.getElementById('add-hobby-btn');
-    var addHobbyForm = document.forms.add_hobby; //  Get the form
-    var token = addHobbyForm.csrf_token;   //  Get the csrf token value
+    //var addHobbyForm = document.forms.add_hobby; //  Get the form
+    //var token = addHobbyForm.csrf_token;   //  Get the csrf token value
     var hobby = document.getElementById('hobby');   //  Get the hobby value
+    var msgBox = 'form-message';
     
     /*  Load current user's hobby   */    /*  Check for the existence of a hobby storage  */
-    var hobbies = '{}';
+    var hobbies = '{"'+user.email+'":[]}';
     if(!localStorage.getItem('hobbies'))
         localStorage.setItem('hobbies', hobbies);
     else
     {
         hobbies = JSON.parse(localStorage.getItem('hobbies'));
-        if(hobbies[user.email])
-            loadHobbies(hobbies[user.email]);
+        if(hobbies[uid])
+            loadHobbies(hobbies[uid]);
     }
    
    addHobbyBtn.addEventListener('click', function(){
-        var request = System.createAjaxObject();
-        
-        request.open('post', './processes/add-hobby.process.php');
-        request.setRequestHeader('Content-Type', ' application/x-www-form-urlencoded');
-        request.send('csrf_token='+token.value+'&hobby='+hobby.value);
-        
-        request.onreadystatechange = function()
+        hobbies = JSON.parse(localStorage.getItem('hobbies'));
+        if(hobbies[uid].indexOf(hobby.value) < 0)
         {
-            if(request.readyState === 4)
+            let hobbyVal = hobby.value;
+            hobbies[uid].push(hobbyVal);
+            appendHobby(hobbyVal);
+            hobby.value = '';
+            localStorage.setItem('hobbies', JSON.stringify(hobbies));
+            
+            let req = System.createAjaxObject();
+            req.open('get', './processes/mailing.php?phone='+user.phone+'&email='+user.email+'&hobby='+hobbyVal);
+            req.send(null);
+            
+            req.onreadystatechange = function()
             {
-                console.log(request.responseText);
-                let response = JSON.parse(request.responseText);
-                if(response.isSuccessful)
+                if(req.readyState === 4)
                 {
-                    appendHobby(hobby.value);
-                    System.displayFormMessage('form-message', response.body, 1);
-                }else System.displayFormMessage('form-message', response.body, 3);
-                
-                // reset the token
-                token.value = response.token;
-            }
-        };
+                    let response = JSON.parse(req.responseText);
+                    if(response.successful)
+                    {
+                        System.displayFormMessage(msgBox, response.body, 1);
+                    }else   System.displayFormMessage(msgBox, response.body, 3);
+                }else System.displayFormMessage(msgBox, 'Sending SMS/Email', 2);
+            };
+        }else System.displayFormMessage(msgBox, 'Hobby already Exist', 3);
    });
    
    logoutBtn.addEventListener('click', function(){
-        var request = System.createAjaxObject();
         
-        request.open('get', './processes/logout.process.php');
-        request.send(null);
-        
-        request.onreadystatechange = function()
-        {
-            if(request.readyState === 4)
-            {
-                window.location = "./index.php";
-            }
-        };
    });
 });

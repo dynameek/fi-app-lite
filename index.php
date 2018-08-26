@@ -1,7 +1,6 @@
 <?php
     session_start();
     require_once('./web.php');
-    require_once('./processes/login.process.php');
 ?>
 <!DOCTYPE html>
 <html>
