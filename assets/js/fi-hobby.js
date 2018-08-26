@@ -39,7 +39,7 @@ window.addEventListener('load', function(){
     var msgBox = 'form-message';
     
     /*  Load current user's hobby   */    /*  Check for the existence of a hobby storage  */
-    var hobbies = '{"'+user.email+'":[]}';
+    var hobbies = '{"'+uid+'":[]}';
     if(!localStorage.getItem('hobbies'))
         localStorage.setItem('hobbies', hobbies);
     else
@@ -47,6 +47,9 @@ window.addEventListener('load', function(){
         hobbies = JSON.parse(localStorage.getItem('hobbies'));
         if(hobbies[uid])
             loadHobbies(hobbies[uid]);
+        else hobbies[uid] = [];
+        
+        localStorage.setItem('hobbies', JSON.stringify(hobbies));
     }
    
    addHobbyBtn.addEventListener('click', function(){
