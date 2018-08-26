@@ -24,6 +24,7 @@
             $retBody = 'SMS and Email sent';
         else $retBody = 'Mail failed';
     }else $retBody = "SMS failed";
+    
     /*  Return  */
    echo '{"successful":'.$retCode.', "body": "'.$retBody.'"}';
 ?>

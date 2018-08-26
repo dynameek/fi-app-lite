@@ -26,6 +26,7 @@
         }catch(EnvironmentException $e)
         {
             //echo $e->getMessage();
+            $retVal = false;
         }
         
         return $retVal;
