@@ -1,0 +1,67 @@
+/**/
+@media screen and (min-width: 300px){
+    header{
+        padding: 0 15px;
+    }
+    header .site-icon{
+        width: 120px;
+        height: 35px;
+    }
+    header button{
+        padding: 5px 15px;
+    }
+    .left-sec, .right-sec{
+        width: 100%;
+    }
+    .left-sec{
+        padding-left: 15px; 
+    }
+    .right-sec{
+        padding-right: 15px;
+    }
+}
+
+@media screen and (min-width: 600px)
+{
+    header{
+        padding: 0 10%;
+    }
+
+    .left-sec > div{
+        padding:  0;
+        padding-top: 20px;
+    }
+    .right-sec, .left-sec{
+        padding: 0 10%;
+    }
+}
+
+@media screen and (min-width: 1020px)
+{
+    header{
+        padding: 0 15px;
+    }
+    .right-sec, .left-sec{
+        width: 50%;
+        padding: 0 15px;
+    }
+}
+
+
+@media screen and (min-width: 1200px)
+{
+    header{
+        padding: 0 10%;
+    }
+    .right-sec{
+        padding-right: 10%;
+    }
+    .left-sec{
+        width: 50%;
+        padding-left:  10%;
+    }
+}
+@media screen and (min-width: 1400px)
+{
+    
+}

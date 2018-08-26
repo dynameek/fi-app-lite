@@ -7,18 +7,21 @@
         <title>FieldInsights</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <?php
-            Asset::loadStyles(['general', 'forms', 'home-specific', 'colors', 'links']);
+            Asset::loadStyles(['general', 'forms', 'home-specific', 'colors', 'links', 'resp']);
             Asset::loadScripts(['system.js','fi-hobby.js'])
         ?>
     </head>
     <body>
         <div class="page-wrap">
-           <section class="left-sec">
-                <header>
+            <header>
+                <div>
                     <div class="site-icon">
                         <?php Asset::loadImage('fi-logo.png');?>
                     </div>
-                </header>
+                    <button id="logout">log Out</button>
+                </div>
+            </header>
+           <section class="left-sec">
                 <div>
                     <div class="card">
                         <div id="form-message"></div>
@@ -29,7 +32,7 @@
                         </form>
                     </div>
                     <div class=" card hobby-list-wrap">
-                        <h3>Your Hobbies:</h3>
+                        <h3>Your Hobbies: <span id="clear-hobbies">Clear Hobbies</span></h3>
                         <div id="hobby-list">
                             
                         </div>
@@ -37,19 +40,87 @@
                 </div>
            </section>
            <section class="right-sec">
-                <div class="veil">
-                    <header>
-                        <button id="logout">log Out</button>
-                    </header>
+                <div class="outer-about-wrapper">
                     <div class="about-wrapper">
                         <div>
-                            <h1>ABOUT</h1>
-                            <h3>App:</h3>
-                            <p></p>
-                            <p></p>
-                            <h3>Developer:</h3>
-                            <p></p>
-                            <p></p>
+                            <div class="ball-point"></div>
+                            <article>
+                                <h3>APP INFO</h3>
+                                <p>
+                                    This is a hobby aggregation application which lets you
+                                    keep a stock of your hobbies.
+                                    This version allows a you add hobbies and sends them
+                                    to you via SMS and Email.
+                                </p>
+                            </article>
+                        </div>
+                        <div>
+                            <div class="ball-point"></div>
+                            <article>
+                                <h3>TECHNOLOGIES</h3>
+                                <p>
+                                    To bring this application to you, I used the foolowing
+                                    technologies:<br>
+                                    <ol>
+                                        <li>HTML & CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>AJAX</li>
+                                        <li>PHP</li>
+                                        <li>Twilio SMS API</li>
+                                        <li>SendGrid email API</li>
+                                        <li>JS localStorage {Client-side data storage}</li>
+                                    </ol>
+                                </p>
+                            </article>
+                        </div>
+                        <div>
+                            <div class="ball-point"></div>
+                            <article>
+                                <h3>CONSTRAINTS</h3>
+                                <p>
+                                    In the course of development, I encountered the following issues:
+                                    <ol>
+                                        <li>
+                                            I chose to utilize JavaScript's localStorage as a storage
+                                            engine, as Heroku provides limited database support.
+                                        </li>
+                                        <li>
+                                            Twilio is constrained
+                                            to sending SMS to verified users.
+                                        </li>
+                                        <li>
+                                            I had problems with Amazon's SES account creation and validation
+                                            leading me to opt for SendGrid's email API.
+                                        </li>
+                                    </ol>
+                                </p>
+                            </article>
+                        </div>
+                        <div>
+                            <div class="ball-point"></div>
+                            <article>
+                                <h3>DEVELOPER</h3>
+                                <p>
+                                    Nathan is a self-taught driven, self-motivated and creative
+                                    full stack web developer who loves to solve problems and
+                                    drive positive growth. He's also had the priviledge of being
+                                    the president of the Nigeria Association of Computer Science Students,
+                                    LAUTECH chapter and the chief publisher of an erstwhile campus
+                                    Magazine - MeekUrban.
+                                </p>
+                                <p>
+                                    I'd be pleased to commence ASAP.
+                                </p>
+                            </article>
+                        </div>
+                        <div>
+                            <div class="ball-point"></div>
+                            <article>
+                                <h3>REQUEST</h3>
+                                <p>
+                                    Accomodation and a fair salary
+                                </p>
+                            </article>
                         </div>
                     </div>
                 </div>

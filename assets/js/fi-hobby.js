@@ -32,6 +32,7 @@ var uid = user.email;
 window.addEventListener('load', function(){
     var logoutBtn = document.getElementById('logout');
     var addHobbyBtn = document.getElementById('add-hobby-btn');
+    var clearHobbiesBtn = document.getElementById('clear-hobbies');
     //var addHobbyForm = document.forms.add_hobby; //  Get the form
     //var token = addHobbyForm.csrf_token;   //  Get the csrf token value
     var hobby = document.getElementById('hobby');   //  Get the hobby value
@@ -77,7 +78,16 @@ window.addEventListener('load', function(){
         }else System.displayFormMessage(msgBox, 'Hobby already Exist', 3);
    });
    
+   clearHobbiesBtn.addEventListener('click', function(){
+      let hobbyList = document.getElementById('hobby-list');
+      hobbies = JSON.parse(localStorage.getItem('hobbies'));
+      hobbies[uid] = [];
+      hobbyList.innerHTML = '';
+      localStorage.setItem('hobbies', JSON.stringify(hobbies));
+   });
+   
    logoutBtn.addEventListener('click', function(){
-        
+        localStorage.removeItem('uid');
+        window.location = './index.php';
    });
 });
